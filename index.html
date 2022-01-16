@@ -4,9 +4,89 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- link to bootstrap and fontawesome-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="./assets/style.css"/>
+    <title>Weather Dashboard</title>
 </head>
+
 <body>
-    
+    <!-- using bootstrap to create the elements for our page -->
+    <div class= "bg-primary text-white text-center">
+        <div class="container-fluid">
+          <h1>
+            <i class="far fa-sun"></i>
+            Weather Dashboard
+          </h1>
+        </div>
+    </div>
+
+    <main class="container row">
+        <div class="align-items-start col-4">
+            <div class="search border-bo border-dark">
+                <div class="row">
+                    <h1>Search for a City:</h1>
+                </div>
+                <div class="row">
+                    <input type="text" class="SearchInput" placeholder="Enter a City">
+                    <button type="submit" class="searchBtn">
+                        <i class="fas fa-search-location"></i>
+                    </button>
+                </div>
+                <div class="CityHistory">
+                    <h2>temporary</h2>
+                </div>
+            </div>
+        </div>
+
+        <div id="WeatherDisplay" class="align-items-end border col-8 hide">
+            <div class="WeatherSummary">
+                <div class="row">
+                    <h2 class="CityName"></h2>
+                    <h2 class="CurrentDate"></h2>
+                    <img class="weatherIcon"></img>
+                </div>
+                <div class="row">
+                    <p class="temp"></p>
+                </div>
+                <div class="row">
+                    <p class="windSpeed">Wind:</p>
+                </div>
+                <div class="row">
+                    <p class="Humidity">Humidity:</p>
+                </div>
+                <div class="row">
+                    <p class="UVIndex">UV-Index:</p>
+                </div>
+            </div>
+
+            <div class="DayForecast hide">
+                <h3>5-Day Forecast:</h3>
+                <div class="card-row"></div>
+            </div>
+        </div>
+
+
+    </main>
+
+
+
+    <!-- links to jquery, moment and script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/script.js"></script>
 </body>
+    <div class="container"> 
+
+    </div>
 </html>
