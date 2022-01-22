@@ -51,16 +51,42 @@ var gettingForecast = function (longitude, latitude) {
       console.log(response);
       response.json().then(function (data) {
         console.log(data);
-        CurrentTemp.textContent = "Temp: " + data.current.temp;
+        CurrentTemp.textContent = "Temp: " + data.current.temp + " F";
         CurrentWind.textContent = "Wind Speed: " + data.current.wind_speed;
         Humidity.textContent = "Humdity: " + data.current.humidity;
         UVIndex.textContent = "UV Index: " + data.current.uvi;
         // debugger;
-        BuildForecastCard(data.daily);
+        var BuildForecastCard = function () {
+          for (var i = 0; i < 5; i++) {
+            // var TodaysForecast = document.createElement("div");
+            // cardrow.appendChild(TodaysForecast);
+            // var Date1 = TodaysForecast.createElement("div");
+            // TodaysForecast.appendChild(Date1);
+            // var Date = data.daily[i].dt;
+            var convertUnix = moment
+              .unix(data.daily[i].dt)
+              .format("DD MM YYYY");
+            var weatherResults = {
+              date: convertUnix,
+              temp: data.daily[i].temp.day,
+              windSpeed: data.daily[i].wind_speed,
+            };
+            console.log(weatherResults);
+            // displayforecast(
+            //   weatherResults.date,
+            //   weatherResults.temp,
+            //   weatherResults.windSpeed
+            // );
+            console.log(weatherResults.date);
+          }
+        };
+        BuildForecastCard();
       });
     }
   });
 };
+
+// displayforecast();
 
 var FormSubmit = function (event) {
   event.preventDefault();
@@ -76,21 +102,54 @@ var FormSubmit = function (event) {
 };
 
 SearchButton.addEventListener("click", FormSubmit);
-// event.preventDefault();
-// FormSubmit()
-// //var
-// console.log("hi")
-
-// searchApi("Sydney")
 
 //looping 5  times to create 5 cards, create the 5 boxes and then append data to it
-var BuildForecastCard = function (forecast) {
-  for (var i = 0; (i = 4); i++) {
-    var TodaysForecast = document.createElement("div");
-    cardrow.appendChild(TodaysForecast);
-    var Date1 = TodaysForecast.createElement("div");
-    TodaysForecast.appendChild(Date1);
-    var Date = data.daily[i].dt;
-    debugger;
-  }
-};
+
+// for (var i = 0; i < resultsInt; i++) {
+//   var recipeResults = {
+//     label: data.hits[i].recipe.label,
+//     url: data.hits[i].recipe.url,
+//     image: data.hits[i].recipe.images.REGULAR.url,
+//   };
+//   displayResults(
+//     recipeResults.label,
+//     recipeResults.url,
+//     recipeResults.image
+//   );
+// }
+// });
+// }
+// });
+// };
+
+// // display data on page in cards
+// var displayResults = function (label, url, image) {
+// var cardEl = document.createElement("div");
+// var cardSectionEl = document.createElement("div");
+// var subtitleEl = document.createElement("h4");
+// var descriptionEl = document.createElement("p");
+// var linkEl = document.createElement("a");
+// var linkImageEl = document.createElement("a");
+// var cardImageEl = document.createElement("img");
+// var favButton = document.createElement("i");
+
+// cardEl.setAttribute("class", "card");
+// cardSectionEl.setAttribute("class", "card-section");
+// subtitleEl.textContent = label;
+// cardImageEl.src = image;
+// linkEl.setAttribute("href", url);
+// linkEl.setAttribute("target", "_blank");
+// linkEl.setAttribute("class", "card-link");
+// linkImageEl.setAttribute("href", url);
+// linkImageEl.setAttribute("target", "_blank");
+// descriptionEl.className = "description";
+// favButton.setAttribute("class", "far fa-heart");
+
+// searchResults.appendChild(cardEl);
+// linkEl.appendChild(subtitleEl);
+// cardEl.appendChild(cardSectionEl);
+// cardSectionEl.appendChild(linkImageEl);
+// linkImageEl.appendChild(cardImageEl);
+// cardSectionEl.appendChild(descriptionEl);
+// cardSectionEl.appendChild(linkEl);
+// cardSectionEl.appendChild(favButton);
