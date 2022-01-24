@@ -101,9 +101,6 @@ var FormSubmit = function (event) {
     saveHistory();
     displayHistory();
   }
-  // else{
-  //   window.location.reload
-  // }
 };
 //Event listener for the above function
 SearchButton.addEventListener("click", FormSubmit);
@@ -120,8 +117,6 @@ var displayForecast = function (date, temp, wind,emoji) {
   cardEl.setAttribute("class", "card");
   cardEl.classList.add("col");
   cardEl.classList.add("m-2");
-  // cardEl.setAttribute("class", "")
-  // cardEl.setAttribute("style", "width: 18rem")
   cardSectionEl.setAttribute("class", "card-body");
   Dates.textContent = "Date: " + date;
   TEMP.textContent="Temp in F: " + temp
@@ -175,5 +170,5 @@ var displayHistory=function(){
   })
   }}
 
-  displayHistory();
+displayHistory();
 
