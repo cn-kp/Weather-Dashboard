@@ -2,7 +2,7 @@
 
 ## Deployment
 
-- [GitHub Repository](https://github.com/cn-kp/homework6-weather-dashboard)
+- [GitHub Repository](https://github.com/cn-kp/Weather-Dashboard)
 - [GitHub Deployed Link](https://cn-kp.github.io/Weather-Dashboard/)
 
 ## Description
